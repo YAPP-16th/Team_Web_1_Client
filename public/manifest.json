@@ -5,11 +5,9 @@
   "description": "url collection",
   "permissions": [
     "tabs", 
-    "activeTab",
     "<all_urls>",
     "identity",
-    "history",
-    "storage"
+    "history"
   ],
   "icons": { 
     "16": "images/logo/logo16.png",

@@ -119,15 +119,16 @@ export default function CategoryContainer() {
   // * 링크 작성 => getLink, getCategory
   const writeLink = async (linkInfo) => {
     try {
-      const { category } = linkInfo
+      // const { category } = linkInfo
       const response = await linkAPI.write(linkInfo)
       if (response.hasOwnProperty("error")) throw response.error
-      await getLink({category})
-      await getCategory({})
+      // await getLink({category})
+      // await getCategory({})
       return response
     } catch (error) {
       const errorMsg = error.hasOwnProperty("response") ? error.response.data.message : error.message
-      console.warn(errorMsg)
+      setAlerType("error")
+      setAlertText(errorMsg)
     }
   }
 
@@ -248,8 +249,6 @@ export default function CategoryContainer() {
   }
 
   useEffect(() => {
-    getCategory({})
-
     // * SOCKET CONNECTION => setAlarmList
     alarmSocket.onmessage(function(e) {
       const { message, status } = JSON.parse(e.data)
@@ -260,12 +259,13 @@ export default function CategoryContainer() {
         setAlarmList(message)
       }
     })
+    alarmSocket.onclose()
   },[])
 
   return (
     <CategoryStateContext.Provider value={categoryState}>
       <CategoryDispatchContext.Provider value={categoryDispatch}>
-        <LinkStateContext.Provider value={linkState}>
+        <LinkStateContext.Provider value={[linkState, setLink]}>
           <LinkDispatchContext.Provider value={linkDispatch}>
             <CategoryDrawer {...props}/>
             <Snackbar open={alertText ? true : false}

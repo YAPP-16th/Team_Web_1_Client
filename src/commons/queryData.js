@@ -7,7 +7,7 @@ const queryData = {
    * * Authorization: JWT 불필요
    */
   nRegister: {
-    "sign_up_type": "normal",
+    "sign_up_type": "", // * (normal default [server])
     "email": "",
     "username": "",
     "password": ""
@@ -53,14 +53,14 @@ const queryData = {
   
   /**
    * * 회원정보 조회 GET
-   * * user/{id}/
+   * * user/{userId}/ (option)
    * * JWT 필요
    */
   userRead: {},
 
   /**
    * * 회원정보 부분 수정 PATCH
-   * * user/{id}/
+   * * user/{userId}/ (option)
    * * JWT 필요
    */
   userUpdate: {
@@ -72,7 +72,7 @@ const queryData = {
   
   /**
    * * 회원정보 삭제 DELETE
-   * * user/{id}/
+   * * user/{userId}/ (option)
    * * JWT 필요
    */
   userDelete: {},
@@ -115,7 +115,7 @@ const queryData = {
   /**
  * * 카테고리 리스트 조회 GET
  * * category/ -> list
- * * category/{id}/ -> partical
+ * * category/{categoryId}/
  * * JWT 필요
  */
   categoryRead: {},
@@ -132,7 +132,7 @@ const queryData = {
   
   /**
  * * 카테고리 수정 PATCH
- * * category/{id}/
+ * * category/{categoryId}/
  * * JWT 필요
  */
   categoryUpdate: {
@@ -180,7 +180,7 @@ const queryData = {
 
   /**
    * * URL 삭제 DELETE
-   * * url/{id}/
+   * * url/{urlId}/
    * * JWT 필요
    */
   linkDelete: {},
@@ -226,7 +226,7 @@ const queryData = {
    */
   alarmReadMessage: {
     "alarm_id": "",
-    "action": "read"
+    "action": "" // * read
   },
 
   /**
@@ -235,7 +235,7 @@ const queryData = {
    */
   alarmNoReturnMessage: {
     "alarm_id": "",
-    "action": "done"
+    "action": "" // * done
   }
   
   // ****************** ALRAM - - SOCKET - END *****************//

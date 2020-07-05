@@ -34,7 +34,7 @@ const historyAPI = {
           let prevDate = ""
           historyItemList.map(function (historyItem) {
             const url = document.createElement('a')
-            let curDate = new Date(historyItem.lastVisitTime).toLocaleDateString();
+            let curDate = new Date(historyItem.lastVisitTime).toLocaleDateString()
             url.href = historyItem.url
             historyItem.hostName = url.hostname
             historyItem.favicon = `https://www.google.com/s2/favicons?domain=${url.hostname}`
@@ -45,10 +45,6 @@ const historyAPI = {
             else historyItem.first = false
             return historyItem
           })
-          // console.log("maxResults",maxResults)
-          // console.log("startTime",new Date(startTime))
-          // console.log("endTime",new Date(endTime))
-          // console.log("historyItemList.length",historyItemList.length)
           if (callback && typeof (callback) === "function") callback(historyItemList)
           else console.log(historyItemList)
         }

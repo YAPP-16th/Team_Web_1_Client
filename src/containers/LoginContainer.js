@@ -29,7 +29,6 @@ export default function LoginContainer() {
       const gLogin = userAPI.gLogin({token})
       if(gLogin) {
         gLogin.then(res => {
-          console.log("ss", res)
           auth.setAccessToken(res.data.token)
           window.location.href = "/index.html"
         })
