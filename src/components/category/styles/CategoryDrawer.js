@@ -52,11 +52,16 @@ export const useStyles = makeStyles((theme) => ({
   },
   hiddenDropZone: {
     width: '212px',
+    height: '50px',
+    display: 'block',
+    opacity: 0
+  },
+  hiddenCategoryDropZone: {
+    width: '212px',
     height: '100vh',
     display: 'block',
     opacity: 0
   },
-
   coverBackground: {
     position: 'absolute',
     backgroundColor: 'rgba(53, 142, 255, 0.15)',
