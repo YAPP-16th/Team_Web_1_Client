@@ -291,7 +291,6 @@ export default function CategoryDrawer(props) {
       updateCategory({ id, name, order, is_favorited: favorited })
       .then(() =>  setDraggedTargetData({
         ...draggedCategoryData,
-        draggedName: '',
         dragFinished: true,
       }))
     } else if(type === 'link') {
@@ -336,7 +335,6 @@ export default function CategoryDrawer(props) {
     }
   }  
 
-
   const dragOverOnCardArea =(e) => {
     e.stopPropagation()
     e.preventDefault()
@@ -348,7 +346,6 @@ export default function CategoryDrawer(props) {
     const type = e.dataTransfer.getData('text/type')
     const filteredLinkList = [] 
     selectedLinkList.forEach(link => filteredLinkList.push(link.path))
-
 
     if(type === 'link') {
       e.preventDefault()
@@ -390,7 +387,6 @@ export default function CategoryDrawer(props) {
         })
     }
     return () => {
-      // document.removeEventListener("mousedown", handleClickOutside)
       clearTimeout(timeId.current)
     }
 
